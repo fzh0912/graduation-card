@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>happy graduation</title>
+<style>
+  /* Reset dan dasar */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffd6ec, #d0f4ff, #e0ffd6);
+    font-family: 'Segoe UI', Times New Roman, Geneva, Verdana, sans-serif;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    user-select: none;
+  }
+
+  /* Glitter Effect */
+  .glitter {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%,  rgba(255,255,255,0.8) 2px, transparent 3px),
+      radial-gradient(circle at 40% 90%,  rgba(255,255,255,0.4) 2px, transparent 3px),
+      radial-gradient(circle at 60% 40%,  rgba(255,255,255,0.6) 2px, transparent 3px),
+      radial-gradient(circle at 80% 80%,  rgba(255,255,255,0.5) 2px, transparent 4px),
+      radial-gradient(circle at 50% 50%,  rgba(255,255,255,0.7) 3px, transparent 5px);
+    background-size: 100px 100px;
+    animation: glitterMove 3s linear infinite;
+    z-index: 0;
+  }
+  @keyframes glitterMove {
+    0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
+    100% { background-position: 100px 100px, 80px 80px, 120px 120px, 90px 90px, 110px 110px; }
+  }
+
+  /* Card Container */
+  .card {
+    position: relative;
+    background: rgba(255 255 255 / 0.92);
+    border-radius: 25px;
+    box-shadow: 0 0 50px rgb(255 102 163 / 0.5);
+    padding: 30px 40px;
+    max-width: 380px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    user-select: text;
+    overflow: hidden;
+  }
+
+  h1 {
+    font-size: 2rem;
+    color: #ff66a3;
+    text-shadow: 0 0 6px #ff66a3, 0 0 10px #ff66a3;
+    margin-bottom: 20px;
+  }
+  .line {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: transparent;
+    background: linear-gradient(90deg, #ff66a3 0%, #66ccff 50%, #66ff99 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 8px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s forwards;
+  }
+  .line:nth-of-type(1) { animation-delay: 0.4s; }
+  .line:nth-of-type(2) { animation-delay: 1.0s; }
+  .line:nth-of-type(3) { animation-delay: 1.6s; }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Flower styling and animation */
+  .flower {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    filter: drop-shadow(0 0 2px #ff66a3);
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform;
+    z-index: 5;
+  }
+
+  /* Flower float animations */
+  @keyframes floatUpSlow {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+  }
+  @keyframes floatUpFast {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    15% { opacity: 1; }
+    100% { transform: translateY(-20vh) rotate(-360deg); opacity: 0; }
+  }
+  @keyframes floatUpMedium {
+    0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+    12% { opacity: 1; }
+    100% { transform: translateY(-20vh) rotate(360deg); opacity: 0; }
+  }
+
+  /* Replay button */
+  .replay-btn {
+    margin-top: 22px;
+    padding: 12px 28px;
+    border-radius: 15px;
+    border: none;
+    background: linear-gradient(90deg, #ff66a3, #66ccff);
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 0 10px #66ccffaa;
+    transition: background 0.3s ease;
+  }
+  .replay-btn:hover {
+    background: linear-gradient(270deg, #ff66a3, #66ccff);
+  }
+
+  @media(max-height:600px) and (max-width:350px) {
+    .card {
+      padding: 20px 25px;
+      max-width: 320px;
+    }
+    h1 {
+      font-size: 1.6rem;
+    }
+    .line {
+      font-size: 1rem;
+    }
+    .flower {
+      width: 30px;
+      height: 30px;
+    }
+    .replay-btn {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+  <div class="glitter"></div>
+  <div class="card" id="card">
+    <h1>Happy Graduation!</h1>
+    <p class="line">Selamat atas kelulusannya kakk ^o^</p>
+    <p class="line">Terimakasih telah menjadi sosok yang inspiratif dan panutan selama ada di sekolah</p>
+    <p class="line">Semoga langkah kakak kedepannya selalu diberkahi dan sukses menyertai di setiap pilihan ⁠✯⁠ᴗ⁠✯⁠</p>
+    <button class="replay-btn" onclick="replayAnimation()">restart</button>
+  </div>
+
+  <script>
+    const flowerImages = [
+      'https://cdn.pixabay.com/photo/2016/03/31/18/14/flower-1295068_960_720.png',
+      'https://cdn.pixabay.com/photo/2017/01/31/21/22/flower-2021141_960_720.png',
+      'https://cdn.pixabay.com/photo/2017/12/29/11/20/cherry-blossom-3049912_960_720.png',
+      'https://cdn.pixabay.com/photo/2014/12/27/15/35/flowers-582900_960_720.png',
+      'https://cdn.pixabay.com/photo/2014/04/03/00/40/flower-308012_960_720.png'
+    ];
+
+    function createFlower(index) {
+      const flower = document.createElement('div');
+      flower.classList.add('flower');
+      flower.style.backgroundImage = `url('${flowerImages[index]}')`;
+      flower.style.left = Math.random() * 100 + 'vw';
+      flower.style.animationDuration = (8 + Math.random() * 7) + 's';
+      const anims = ['floatUpSlow', 'floatUpFast', 'floatUpMedium'];
+      const anim = anims[Math.floor(Math.random() * anims.length)];
+      flower.style.animationName = anim;
+      flower.style.animationDelay = (Math.random() * 10) + 's';
+      document.body.appendChild(flower);
+    }
+
+    const flowerCount = 25;
+    for (let i = 0; i < flowerCount; i++) {
+      createFlower(i % flowerImages.length);
+    }
+
+    function replayAnimation() {
+      const lines = document.querySelectorAll('.line');
+      lines.forEach(line => {
+        line.style.animation = 'none';
+        line.offsetHeight;
+        line.style.animation = '';
+      });
+    }
+  </script>
+</body>
+</html>
